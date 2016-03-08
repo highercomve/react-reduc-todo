@@ -1,0 +1,20 @@
+
+ul {
+	list-style: none;
+	margin: 1em 0;
+	padding: 0;
+}
+
+ul li {
+	padding: 1em;
+}
+
+.ready {
+	background: #000;
+	color: white;
+}
+
+.not-ready {
+	background: #f0f0f0;
+	color: #000;
+}

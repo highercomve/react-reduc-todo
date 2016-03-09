@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "watchify src/app.js -d -o app/js/app.js -v",
-    "build": "browserify src/app.js -d -o app/js/app.js -v",
+    "build": "browserify src/app.js -d -v | uglifyjs -c > app/js/app.js",
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -47,6 +47,7 @@
     "babel-preset-react": "^6.5.0",
     "expect": "^1.14.0",
     "immutable": "^3.7.6",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "uglifyjs": "^2.4.10"
   }
 }

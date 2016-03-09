@@ -16,7 +16,10 @@ const TodoApp = () => {
         {...store.getState()}
         toggleHandler={(index) => {
           store.dispatch({ type: "TOGGLE_TODO", index: index})
-        }} />
+        }}
+        removeHandler={(index) => {
+          store.dispatch({ type: "REMOVE_TODO", index: index})
+        }}/>
       <FilterMenu filters={filters}
         visibilityFilter={store.getState().visibilityFilter}
         handleFilter={(filter) => {

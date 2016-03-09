@@ -1,4 +1,5 @@
 import React from 'react'
+import { filterTodos } from '../filter_visibility/store'
 
 const Todo = ({
   onClick,
@@ -13,11 +14,11 @@ const Todo = ({
   )
 }
 
-const TodoList = ({ todos, toggleHandler }) => {
-  console.log(todos)
+const TodoList = ({ todos, visibilityFilter, toggleHandler }) => {
+  const visibleTodos = filterTodos(todos, visibilityFilter)
   return (
     <ul>
-      { todos.map((todo, index) => {
+      { visibleTodos.map((todo, index) => {
         return <Todo key={todo.id}
           {...todo}
           onClick={() => toggleHandler(todo.id)} />

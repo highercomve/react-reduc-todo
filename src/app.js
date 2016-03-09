@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import store from './store'
+import { filters } from './components/filter_visibility/store'
 import TodoList from './components/todos/list.view'
 import TodoForm from './components/todos/create.view'
-
-console.log(store)
+import FilterMenu from './components/filter_visibility/filter.view'
 
 const TodoApp = () => {
   return (
@@ -13,10 +13,15 @@ const TodoApp = () => {
           store.dispatch({ type: "ADD_TODO", text: text })
         }}/>
       <TodoList
-        todos={store.getState().todos}
+        {...store.getState()}
         toggleHandler={(index) => {
           store.dispatch({ type: "TOGGLE_TODO", index: index})
         }} />
+      <FilterMenu filters={filters}
+        visibilityFilter={store.getState().visibilityFilter}
+        handleFilter={(filter) => {
+          store.dispatch({ type: "SET_VISIBILITY_FILTER", filter: filter })
+        }}/>
     </div>
   )
 }

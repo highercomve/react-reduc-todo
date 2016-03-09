@@ -3,11 +3,14 @@ import React from 'react'
 const TodoForm = ({ createHandler }) => {
   var _ = {}
   return (
-    <form onSubmit={(e) => {
-      e.preventDefault()
-      createHandler(_.input.value)
-      _.input.value = ''
-    }} >
+    <form className="todo-form"
+      onSubmit={(e) => {
+        e.preventDefault()
+        if(_.input.value !== "") {
+          createHandler(_.input.value)
+        }
+        _.input.value = ''
+      }} >
       <input type="text"
       ref={node => {
         _.input = node

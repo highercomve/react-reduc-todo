@@ -17,6 +17,14 @@ ul li {
 	padding: 1em;
 	border-bottom: 1px solid #CCC;
 	border-top: 1px solid #FFF;
+	position: relative;
+}
+
+ul li:before,
+ul li:after {
+	content: "";
+	display: block;
+	clear: both;
 }
 
 ul li:first-child {
@@ -25,6 +33,28 @@ ul li:first-child {
 
 ul li:last-child {
 	border-bottom: none;
+}
+
+ul li .content,
+ul li .todo-remove {
+	float: left;
+	display: block;
+}
+
+ul li .content {
+	width: 92%;
+}
+
+ul li .todo-remove {
+	background: none;
+	color: #e74c3c;
+	border: none;
+	box-shadow: none;
+	font-size: 2.2em;
+	margin-top: -0.3em;
+	line-height: 0.8em;
+	width: 8%;
+	float: right;
 }
 
 .ready {

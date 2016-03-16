@@ -1,10 +1,6 @@
 import React from 'react'
 
-const FilterBy = ({
-  filter,
-  visibilityFilter,
-  onClick,
-  children }) => {
+const FilterBy = ({ filter, visibilityFilter, onClick, children }) => {
     return (
       <a href="#"
         onClick={onClick}

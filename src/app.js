@@ -34,5 +34,6 @@ const render = () => {
 }
 
 render()
+console.log(store)
 
 store.subscribe(render)

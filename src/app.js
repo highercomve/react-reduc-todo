@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import store from './store'
-import { filters } from './components/filter_visibility/store'
+import { filters } from './components/filter_visibility/reducer'
 import TodoList from './components/todos/list.view'
 import TodoForm from './components/todos/create.view'
 import FilterMenu from './components/filter_visibility/filter.view'
@@ -14,15 +14,15 @@ const TodoApp = () => {
         }}/>
       <TodoList
         {...store.getState()}
-        toggleHandler={(index) => {
+        toggleHandler={ (index) => {
           store.dispatch({ type: "TOGGLE_TODO", index: index})
         }}
-        removeHandler={(index) => {
+        removeHandler={ (index) => {
           store.dispatch({ type: "REMOVE_TODO", index: index})
         }}/>
       <FilterMenu filters={filters}
-        visibilityFilter={store.getState().visibilityFilter}
-        handleFilter={(filter) => {
+        visibilityFilter={ store.getState().visibilityFilter }
+        handleFilter={ (filter) => {
           store.dispatch({ type: "SET_VISIBILITY_FILTER", filter: filter })
         }}/>
     </div>

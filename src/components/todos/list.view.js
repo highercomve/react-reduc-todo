@@ -1,15 +1,15 @@
 import React from 'react'
-import { filterTodos } from '../filter_visibility/store'
+import { filterTodos } from '../filter_visibility/reducer'
 
-const Todo = ({ onClick, onRemove, completed, text }) => {
+const Todo = ({ toggleHandler, removeHandler, completed, text, id }) => {
   return (
     <li className={(completed) ? 'ready':'not-ready'}>
       <span className="content"
-        onClick={onClick}>
+        onClick={ () => { toggleHandler(id) }}>
         { text }
       </span>
       <button className="todo-remove"
-        onClick={onRemove}>
+        onClick={ () => { removeHandler(id) }} >
         &otimes;
       </button>
     </li>
@@ -23,8 +23,8 @@ const TodoList = ({ todos, visibilityFilter, toggleHandler, removeHandler }) => 
       { visibleTodos.map((todo, index) => {
         return <Todo key={index}
           {...todo}
-          onClick={() => toggleHandler(index) }
-          onRemove={() => removeHandler(index) }/>
+          toggleHandler={ toggleHandler } 
+          removeHandler={ removeHandler } />
         })
       }
     </ul>

@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from 'redux'
-import todos from './components/todos/store'
-import visibilityFilter from './components/filter_visibility/store'
+import todos from './components/todos/reducer'
+import visibilityFilter from './components/filter_visibility/reducer'
 
 const reducer = combineReducers({
   todos,

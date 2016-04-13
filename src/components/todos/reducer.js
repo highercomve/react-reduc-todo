@@ -16,14 +16,12 @@ function newTodo (todo) {
   }
 }
 
-function removeTodo (state, index) {
-  return [
-    ...state.slice(0,index),
-    ...state.slice(index+1)
-  ]
+function removeTodo (state, id) {
+  return state.filter(todo => todo.id !== id )
 }
 
-function toggleTodo (state, index) {
+function toggleTodo (state, id) {
+  const index = state.findIndex(todo => todo.id === id )
   return [
     ...state.slice(0, index),
     changeStatus(state[index]),
